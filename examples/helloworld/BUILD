@@ -70,6 +70,6 @@ kotlin_test(
 java_library(
     name = "guava",
     exports = [
-        "@com_google_guava_guava_21_0//jar",
+        "@x_com_google_guava_guava_21_0//jar",
     ],
 )

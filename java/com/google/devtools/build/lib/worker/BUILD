@@ -20,7 +20,7 @@ java_library(
         "WorkerProtocol.java",
     ],
     deps = [
-        "@com_google_protobuf_protobuf_java//jar",
+        "@x_com_google_protobuf_protobuf_java//jar",
     ],
     visibility = ["//visibility:public"],
 )

@@ -65,21 +65,21 @@ def kotlin_repositories(
 
     # UN-COMMENT these to build native worker proto from source.
     # if not omit_com_google_protobuf:
-    #     proto_library rules implicitly depend on @com_google_protobuf//:protoc,
+    #     proto_library rules implicitly depend on @x_com_google_protobuf//:protoc,
     #     which is the proto-compiler.
-    #     This statement defines the @com_google_protobuf repo.
+    #     This statement defines the @x_com_google_protobuf repo.
     #     native.http_archive(
-    #         name = "com_google_protobuf",
+    #         name = "x_com_google_protobuf",
     #         urls = ["https://github.com/google/protobuf/archive/a6189acd18b00611c1dc7042299ad75486f08a1a.zip"],
     #         strip_prefix = "protobuf-a6189acd18b00611c1dc7042299ad75486f08a1a",
     #         sha256 = "102b5024120215c5a34ad23d9dd459e8ccc37dc3ef4c73d466ab802b6e3e9512",
     #     )
 
     # if not omit_com_google_protobuf_java:
-    #     # java_proto_library rules implicitly depend on @com_google_protobuf_java//:java_toolchain,
+    #     # java_proto_library rules implicitly depend on @x_com_google_protobuf_java//:java_toolchain,
     #     # which is the Java proto runtime (base classes and common utilities).
     #     native.http_archive(
-    #         name = "com_google_protobuf_java",
+    #         name = "x_com_google_protobuf_java",
     #         urls = ["https://github.com/google/protobuf/archive/a6189acd18b00611c1dc7042299ad75486f08a1a.zip"],
     #         strip_prefix = "protobuf-a6189acd18b00611c1dc7042299ad75486f08a1a",
     #         sha256 = "102b5024120215c5a34ad23d9dd459e8ccc37dc3ef4c73d466ab802b6e3e9512",
@@ -87,7 +87,7 @@ def kotlin_repositories(
 
     if not omit_com_google_protobuf_protobuf_java:
         native.maven_jar(
-            name = "com_google_protobuf_protobuf_java",
+            name = "x_com_google_protobuf_protobuf_java",
             artifact = "com.google.protobuf:protobuf-java:3.4.0",
             sha1 = "b32aba0cbe737a4ca953f71688725972e3ee927c",
         )
@@ -106,7 +106,7 @@ def kotlin_repositories(
 
     if not omit_com_google_errorprone_error_prone_annotations:
         java_import_external(
-            name = "com_google_errorprone_annotations",
+            name = "x_com_google_errorprone_annotations",
             licenses = ["notice"],  # Apache 2.0
             jar_sha256 = "e7749ffdf03fb8ebe08a727ea205acb301c8791da837fee211b99b04f9d79c46",
             jar_urls = [
@@ -118,7 +118,7 @@ def kotlin_repositories(
 
     if not omit_com_google_code_findbugs_jsr305:
         java_import_external(
-            name = "com_google_code_findbugs",
+            name = "x_com_google_code_findbugs",
             licenses = ["notice"],  # BSD 3-clause
             jar_urls = [
                 "http://bazel-mirror.storage.googleapis.com/repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar",
@@ -130,7 +130,7 @@ def kotlin_repositories(
 
     if not omit_com_google_guava:
         java_import_external(
-            name = "com_google_guava",
+            name = "x_com_google_guava",
             licenses = ["notice"],  # Apache 2.0
             jar_urls = [
                 "http://bazel-mirror.storage.googleapis.com/repo1.maven.org/maven2/com/google/guava/guava/20.0/guava-20.0.jar",
@@ -139,14 +139,14 @@ def kotlin_repositories(
             ],
             jar_sha256 = "36a666e3b71ae7f0f0dca23654b67e086e6c93d192f60ba5dfd5519db6c288c8",
             deps = [
-                "@com_google_code_findbugs",
-                "@com_google_errorprone_annotations",
+                "@x_com_google_code_findbugs",
+                "@x_com_google_errorprone_annotations",
             ],
         )
 
     if not omit_com_google_dagger:
         java_import_external(
-            name = "com_google_dagger",
+            name = "x_com_google_dagger",
             jar_sha256 = "8b7806518bed270950002158934fbd8281725ee09909442f2f22b58520b667a7",
             jar_urls = [
                 "http://bazel-mirror.storage.googleapis.com/repo1.maven.org/maven2/com/google/dagger/dagger/2.9/dagger-2.9.jar",
@@ -157,7 +157,7 @@ def kotlin_repositories(
             generated_rule_name = "runtime",
             extra_build_file_content = "\n".join([
                 "java_library(",
-                "    name = \"com_google_dagger\",",
+                "    name = \"x_com_google_dagger\",",
                 "    exported_plugins = [\"@com_google_dagger_compiler//:ComponentProcessor\"],",
                 "    exports = [",
                 "        \":runtime\",",
@@ -177,10 +177,10 @@ def kotlin_repositories(
             ],
             licenses = ["notice"],  # Apache 2.0
             deps = [
-                "@com_google_code_findbugs",
-                "@com_google_dagger//:runtime",
-                "@com_google_dagger_producers//:runtime",
-                "@com_google_guava",
+                "@x_com_google_code_findbugs",
+                "@x_com_google_dagger//:runtime",
+                "@x_com_google_dagger_producers//:runtime",
+                "@x_com_google_guava",
             ],
             extra_build_file_content = "\n".join([
                 "java_plugin(",
@@ -200,7 +200,7 @@ def kotlin_repositories(
 
     if not omit_com_google_dagger_producers:
         java_import_external(
-            name = "com_google_dagger_producers",
+            name = "x_com_google_dagger_producers",
             jar_sha256 = "b452dc1b95dd02f6272e97b15d1bd35d92b5f484a7d69bb73887b6c6699d8843",
             jar_urls = [
                 "http://bazel-mirror.storage.googleapis.com/repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.9/dagger-producers-2.9.jar",
@@ -208,17 +208,17 @@ def kotlin_repositories(
             ],
             licenses = ["notice"],  # Apache 2.0
             deps = [
-                "@com_google_dagger//:runtime",
-                "@com_google_guava",
+                "@x_com_google_dagger//:runtime",
+                "@x_com_google_guava",
             ],
             generated_rule_name = "runtime",
             extra_build_file_content = "\n".join([
                 "java_library(",
-                "    name = \"com_google_dagger_producers\",",
+                "    name = \"x_com_google_dagger_producers\",",
                 "    exported_plugins = [\"@com_google_dagger_compiler//:ComponentProcessor\"],",
                 "    exports = [",
                 "        \":runtime\",",
-                "        \"@com_google_dagger//:runtime\",",
+                "        \"@x_com_google_dagger//:runtime\",",
                 "        \"@javax_inject\",",
                 "    ],",
                 ")",

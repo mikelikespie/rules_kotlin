@@ -18,5 +18,5 @@ java_library(
     name = "program",
     srcs = ["CommandLineProgram.java"],
     visibility = ["//visibility:public"],
-    deps = ["@com_google_guava"],
+    deps = ["@x_com_google_guava"],
 )

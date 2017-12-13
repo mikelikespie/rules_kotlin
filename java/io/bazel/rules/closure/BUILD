@@ -26,8 +26,8 @@ java_library(
         #":worker_protocol_java_proto",
 
         "//java/io/bazel/rules/closure/program",
-        "@com_google_dagger",
-        "@com_google_guava",
+        "@x_com_google_dagger",
+        "@x_com_google_guava",
         "@javax_inject",
     ],
     visibility = ["//visibility:public"],

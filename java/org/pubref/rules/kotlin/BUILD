@@ -10,8 +10,8 @@ java_binary(
         ":preloader",
         "//java/io/bazel/rules/closure:BazelWorker",
         "//java/io/bazel/rules/closure/program",
-        "@com_google_dagger",
-        "@com_google_guava",
+        "@x_com_google_dagger",
+        "@x_com_google_guava",
         "@javax_inject",
     ],
 )
@@ -24,7 +24,7 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//java/io/bazel/rules/closure/program",
-        "@com_google_guava",
+        "@x_com_google_guava",
         "@com_github_jetbrains_kotlin//:compiler",
     ],
 )
@@ -37,7 +37,7 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//java/io/bazel/rules/closure/program",
-        "@com_google_guava",
+        "@x_com_google_guava",
         "@com_github_jetbrains_kotlin//:preloader",
     ],
 )
